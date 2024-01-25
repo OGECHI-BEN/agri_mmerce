@@ -38,30 +38,7 @@
 
                 <div id="cart-container" class=" hidden absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
                     <div id="mini_cart">
-                        <div id="cart_items-display" class="flex flex-col">
-                            <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
-                                <div id="itemImage"><img src="/images/bell-peppers-1302126_1280.jpg" alt="" class="w-[150px] "></div>
-                                <div class="product_name flex flex-col">
-                                    <h3 id="itemName" class="item_name text-wrap font-bold">bell peppers</h3>
-                                    <h6 id="availablity" class="text-[10px] font-bold"> available</h6>
-                                </div> 
-                                <div class="product_price flex flex-col">
-                                    <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;700000</h3>
-                                    <h6 id="discount" class="text-[10px]"> %-45</h6>
-                                </div>
-                            </div>
-                            <div class="flex justify-between items-center p-5">
-                                <div onclick="deleteItems()" class="delete_items p-3 cursor-pointer" id="deleteItems">
-                                    <img class="w-3" src="/images/trash-can-regular.svg" alt="">
-                                </div>
-                                <div class="item_size flex ">
-                                    <div onclick="decreaseItems()" id="decreaseItems" class="decrease_items bg-green-950 text-white p-3"> - </div>
-                                    <div id="quantity" class="quantity text-green-950 p-3"> 3</div>
-                                    <div onclick="increaseItems()" id="increaseItems" class="increase_items bg-green-950 text-white p-3"> + </div>
-    
-                                </div>
-                            </div>  
-                        </div> 
+                      <!-- inject cart-items from JS -->
                     </div>
                     <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
                         <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
@@ -78,7 +55,7 @@
     <div class="product-section bg-slate-300 sm:bg-white">
         <h1 class="font-bold text-center text-green-800 p-8">Available Ingredients</h1>    
         <div id="products" class="products grid grid-cols-2 gap-2 sm:grid-cols-4">
-     
+            <!-- inject product from js -->
         </div>
     </div>
 

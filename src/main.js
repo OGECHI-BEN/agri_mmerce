@@ -101,7 +101,7 @@ const products =[
 
    function displayCart(){
     let cart_container = document.getElementById('cart-container');
-    console.log("cart_container------>", cart_container);
+    // console.log("cart_container------>", cart_container);
     cart_container.style.display ='block';
 }
 
@@ -139,30 +139,41 @@ function updateUI(){
 
 
 function addTOcart(product_id){
-    //This is for the red notification to show, 1.
 
-    let cart_notifier = document.getElementById('cart_notificatication');
-    console.log("cart_notifier------>", cart_notifier);
-    cart_notifier.style.display ='block'; 
+    let itemPresentIndex = cart.findIndex(item => item.id === product_id);
+    console.log(itemPresentIndex);
+    if (itemPresentIndex === -1){
+        let target = products.find( item => item.id === product_id);
+         console.log(target);
+         const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
+            // console.log(newCartItems);
+        // console.log(product_id);
+        cart.push(newCartItems);
+       
+    }else{  
+        // console.log('already present');
+        cart[itemPresentIndex].qty++;
+    }
 
+    console.log(cart);
+  
+
+   
     //This is for the on the red notification to show and increase as items are being added to cart 2.
     // cartIncrease++;
     // cart_notifier.innerText = cartIncrease;
     // console.log(cartIncrease);
       //This is for the on the quantity to in the cart to increase it as items are being clicked on
 
-     let display_quantity = document.getElementById('quantity');
-        display_quantity.innerHTML = cartIncrease;
-        console.log(display_quantity);
+    //  let display_quantity = document.getElementById('quantity');
+    //     display_quantity.innerHTML = cartIncrease;
+    //     console.log(display_quantity);
     
     //This
 
-    let target = products.find( item => item.id === product_id);
-     console.log(target);
-    // console.log(product_id);id;
-    cart.push(target);
-    console.log(cart);
+   
     updatecart();
+
 }
 
 
@@ -192,12 +203,16 @@ function updatecart(){
             </div>
             <div class="item_size flex ">
                 <div onclick="decreaseItems()" id="decreaseItems" class="decrease_items bg-green-950 text-white p-3"> - </div>
-                <div id="quantity" class="quantity text-green-950 p-3"> </div>
+                <div id="quantity" class="quantity text-green-950 p-3">${cartItem.qty} </div>
                 <div onclick="increaseItems()" id="increaseItems" class="increase_items bg-green-950 text-white p-3"> + </div>
 
             </div>
         </div>  
     </div> `
+    let cart_notifier = document.getElementById('cart_notificatication');
+    // console.log("cart_notifier------>", cart_notifier);
+    cart_notifier.style.display ='block'; 
+
 
     cartContainer.appendChild(cart_box)
 
@@ -216,6 +231,5 @@ class carts{
     }
 
 }
-const mycart = new carts (cart.id,cart.name,cart.price,cart.image,cart.category,cart.qty);
-console.log(mycart);
+
 
