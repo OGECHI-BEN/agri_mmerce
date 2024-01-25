@@ -198,9 +198,24 @@ function updatecart(){
             </div>
         </div>  
     </div> `
-    
-    cartContainer.appendChild(cart_box)
-}
-}
 
+    cartContainer.appendChild(cart_box)
+
+ 
+}
+}
+class carts{
+    constructor(id,name,price,Image,category,qty){
+        this.id = id;
+        this.name = name;
+        this.price = price;  
+        this.Image = Image;
+        this.category = category;
+        this.qty = qty;
+
+    }
+
+}
+const mycart = new carts (cart.id,cart.name,cart.price,cart.image,cart.category,cart.qty);
+console.log(mycart);
 
