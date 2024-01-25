@@ -169,7 +169,8 @@ function addTOcart(product_id){
 
 
 function updatecart(){
-    let cartContainer = document.getElementById('mini_cart')
+    let cartContainer = document.getElementById('mini_cart');
+    cartContainer.innerHTML = '';
     for(let cartItem of cart){
         let cart_box =  document.createElement('div');
         cart_box.id = "cartItem";
@@ -197,7 +198,7 @@ function updatecart(){
             </div>
         </div>  
     </div> `
-
+    
     cartContainer.appendChild(cart_box)
 }
 }
