@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naija Next Door</title>
+     <!-- company logo displayed on the web page -->
+    <link rel="icon"  type="img/png" sizes="30x30" href="/images/logo.png">
+      <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- css link -->
+    <link rel="stylesheet" href="output.css">
+   
+</head>
+<body>
+                        <!-- navigation bar -->
+     <header class=" bg-green-950   z-10 relative">
+                            <!-- navbar-container -->
+        <nav class=" p-2 text-green-950 flex items-center justify-between ">
+                <a href="#"> <img class="rounded-full w-14 h-14" src="/images/logo.png" alt="Naija Next Door"></a>
+            <div class=" flex text-white justify-around">
+                <a href="#" class="text-white font-medium hover:opacity-80 pe-4 "  >Home</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Products</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Contact Us</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">About Us</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Ratings & feedbacks</a>
+            </div>
+                                                <!-- CART CART  CART -->
+            <div class="">
+                <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="" onclick="addtocart()"> 
+                <div id="cart-container" class="absolute  right-0 w-[50%] bg-green-300  z-20  rounded-b rounded-t hidden">
+                    <div id="cart_items-display" class="flex justify-around items-center p-3">
+                        <img src="/images/bell-peppers-1302126_1280.jpg" alt="" class="w-[50%] rounded-3xl ">
+                        <div class="">
+                            <span>  <img  class="w-3" src="/images/trash-can-regular.svg" alt=""></span>
+                            <h3 id="cart_product_name" class="font-bold  ">Name:</h3> 
+                            <h5 class="font-medium cart_product_quantity"> Quantity: <span id="increase_items" class=" p-1 font-medium border-2 border-black"> +1</span> <span id="reduce_items" class="font-medium border-2 border-black p-1">-1</span> </h5>
+                            <h2  id="item_price" class="font-medium ">price:</h2>
+                        </div>  
+                    </div> 
+                    <div id="cart_items_box">
+                        <div id="cart_items " class="mx-auto py-2 border-2 border-black"> <h3 class="font-medium text-center">Cart Items</h3> </div>
+                        <div id="cart_default" class="mx-auto py-2 border-2 border-black"><h3 class="font-medium text-center"> Sorry! Your cart is empty</h3></div> 
+                        <div id="cart_total"class="mx-auto py-2 border-2 border-black"> <h2 class="font-bold text-center"> TOTAL AMOUNT($)= 0.00</h2></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>                                    
+
+        <!-- main  sliding images -->
+<!-- 
+    <div id="main-header" class="main-header">
+        <div class="side-container" id="slide-container">
+            <div class="slide animate">
+                    <img src="images/apples-1872997_640.png" alt="apples">
+                <div class="slide-description">
+                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, excepturi.</h3>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos.</h2>
+                    <button type="button">View more</button>
+                </div>
+            </div> 
+            <div class="slide animate">
+                    <img src="/images/grapes-553464_640.png" alt="grapes">
+                <div class="slide-description">
+                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, excepturi.</h3>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos.</h2>
+                    <button type="button">View more</button>
+                </div>
+            </div> 
+            <div class="slide animate">
+                     <img src="images/tomatoes-1561565_640.png" alt="apples">
+                <div class="slide-description">
+                    <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, excepturi.</h3>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos.</h2>
+                    <button type="button">View more</button>
+                 </div>
+            </div>
+        </div> 
+    </div> -->
+   
+                      <!--          About us-->
+    <div id="aboutus" class="aboutus-container container-fluid">
+        <div class="aboutus-content">
+            <div class="intro" id="intro">
+                    <h1>About <span class="highlightText">Us</span></h1>
+                <div>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae natus facilis, itaque aperiam, amet corporis doloremque quisquam voluptatem ducimus dolorem consectetur recusandae alias. Accusantium sapiente voluptatibus molestias fugiat incidunt recusandae doloribus expedita nisi quasi! Sit amet a quibusdam, temporibus earum odit,  corrupti, eos impedit minima dolorum natus officia aliquid corporis! Eum libero corporis dolorum velit animi consectetur est dolor quod, cumque ipsum quia tempore, nostrum itaque modi quas, eaque molestias!
+                </div>
+            </div>
+                             <!-- business goals -->
+            <div class="how">
+                <img src="./images/apple-1122537_640.jpg" alt="">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quae quam officia eos cupiditate mollitia perspiciatis vitae ea, aliquam odit! Cumque, asperiores harum dolorem reprehenderit dolore facere et omnis modi placeat quos expedita praesentium eaque reiciendis voluptatibus blanditiis corporis vero, at, recusandae provident! Perspiciatis fugit rerum ipsam adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste vel rerum iusto rem ducimus, sed, eligendi quisquam illum amet asperiores minima, magnam ad tempora. Quisquam consequuntur eius ipsam porro temporibus.
+                </p>
+            </div>
+
+            <div class="corevalues">
+                <div class="whatwedo">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, eius?
+                </div>
+                <div class="whywedoit">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum reprehenderit vel minus soluta autem repellendus nihil numquam. Praesentium, natus quo!
+                </div>
+                <div class="forwho">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ab magni earum commodi ducimus quae veniam debitis. Tenetur quam quod voluptatibus repellendus exercitationem quasi eligendi nostrum molestias voluptatum illum!
+            </div>
+        </div>       
+    </div>
+                                     <!-- card -->
+
+    <footer class="footer" id="footer">
+        <div class="social_icon_container">
+            <span><img src="/images/youtube.svg" alt="youtube"></span>
+            <span><img src="/images/twitter.svg"   alt="twitter"></span>
+            <span><img src="/images/facebook.svg" alt="facebook"></span>
+            <span><img src="/images/instagram.svg" alt="instagram"></span>
+        </div>
+        <div class="contact_info" id="contact_info">
+            <form action="/action_page.php">
+                <label for="email">Email address</label> <br>
+                <input type="text" id="email" name="email_address"><br>
+                <label for="gender">Gender</label><br>
+                <input type="radio" name="MALE" id="gender">
+                <input type="radio" name="FEMALE" id="gender"><br>
+                <label for="feedback">Feedback</label><br>
+                <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+            </form>
+             
+        </div>
+        <div class="payment_options">
+
+        </div>
+
+             NaijaNextDoor&copy;2023
+    </footer>
+     <!-- javascript -->
+    <script src="main.js"></script>
+</body>
+</html>

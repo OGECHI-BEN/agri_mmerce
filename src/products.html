@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>   
+    <!-- company logo displayed on the web page -->
+    <link rel="icon" type="img/png" sizes='30x30' href="/images/logo.png">
+      
+    <!-- bootstrap cd -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  -->
+
+    <!-- fontawesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+   
+    <!-- css link -->
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+           
+    <header class=" bg-green-950   z-10 ">
+                              <!-- navbar-container -->
+        <nav class=" p-2 text-green-950 flex items-center justify-between relative ">
+                <a href="#"> <img class="rounded-full w-14 h-14" src="/images/logo.png" alt="Naija Next Door"></a>
+            <div class=" flex text-white justify-around">
+                 <a href="#" class="text-white font-medium hover:opacity-80 pe-4 " >Home</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Products</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Contact Us</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">About Us</a>
+                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Ratings & feedbacks</a>
+            </div>
+                                               <!-- CART CART  CART -->
+            <div class=""> 
+                <div class=" relative "  onclick="displayCart()">
+                    <div id="cart_notificatication" onclick="cart_notifier()" class="hidden font-semibold text-center h-3 w-3 bg-red-600  text-white text-[10px] rounded-lg left-4 top-0  absolute"></div>
+                    <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="">
+                </div>
+
+                <div id="cart-container" class=" hidden absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
+                    <div id="mini_cart">
+                        <div id="cart_items-display" class="flex flex-col">
+                            <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
+                                <div id="itemImage"><img src="/images/bell-peppers-1302126_1280.jpg" alt="" class="w-[150px] "></div>
+                                <div class="product_name flex flex-col">
+                                    <h3 id="itemName" class="item_name text-wrap font-bold">bell peppers</h3>
+                                    <h6 id="availablity" class="text-[10px] font-bold"> available</h6>
+                                </div> 
+                                <div class="product_price flex flex-col">
+                                    <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;700000</h3>
+                                    <h6 id="discount" class="text-[10px]"> %-45</h6>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-5">
+                                <div onclick="deleteItems()" class="delete_items p-3 cursor-pointer" id="deleteItems">
+                                    <img class="w-3" src="/images/trash-can-regular.svg" alt="">
+                                </div>
+                                <div class="item_size flex ">
+                                    <div onclick="decreaseItems()" id="decreaseItems" class="decrease_items bg-green-950 text-white p-3"> - </div>
+                                    <div id="quantity" class="quantity text-green-950 p-3"> 3</div>
+                                    <div onclick="increaseItems()" id="increaseItems" class="increase_items bg-green-950 text-white p-3"> + </div>
+    
+                                </div>
+                            </div>  
+                        </div> 
+                    </div>
+                    <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
+                        <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
+                        <div id="sum-total" class="border-gray-600 border-b p-2 "><h3 class="font-medium text-center">Sutotal : &#x20A6; </h3></div> 
+                        <div onclick="checkout()" id="checkout"class=" border-gray-600 border-1 p-2 text-center"> <button class="font-bold text-white bg-green-950 p-2">CHECKOUT (&#x20A6;)</button></div>
+                    </div> 
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+                <!-- products -->
+    <div class="product-section bg-slate-300 sm:bg-white">
+        <h1 class="font-bold text-center text-green-800 p-8">Available Ingredients</h1>    
+        <div id="products" class="products grid grid-cols-2 gap-2 sm:grid-cols-4">
+     
+        </div>
+    </div>
+
+        <!-- JS link -->
+    <script src="main.js"></script>
+</body>
+</html>

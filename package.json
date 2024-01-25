@@ -1,0 +1,15 @@
+{
+  "name": "agri_mmerce",
+  "version": "1.0.0",
+  "description": "An ecommerce website that bridges the gap between farmers,final consumer, using HTML,CSS and Javascript.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

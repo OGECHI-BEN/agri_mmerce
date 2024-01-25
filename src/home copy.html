@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naija Next Door</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- company logo displayed on the web page -->
+    <link rel="icon"  type="img/png" sizes="30x30" href="/images/logo.png">
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!-- navbar-container -->
+    <nav class="navbar navbar-expand-sm container-fluid  navarea fixed-top d-flex justify-content-between " >
+      <a class=" navbar-brand "> <img class="rounded-pill logo" src="/images/logo.png" alt="Naija Next Door"></a>
+
+     
+      <div class="collapse navbar-collapse" id="thenavbar">
+            <ul class="navbar-nav" >
+                <li class="nav-items"> <a href="#" class="nav-link">Home</a></li>
+                <li class="nav-items"> <a href="#" class="nav-link">Products</a></li>
+                <li class="nav-items"> <a href="#" class="nav-link">Contavt</a></li>
+                <li class="nav-items"> <a href="#" class="nav-link">Ratings & feedbacks</a></li>
+           </ul>
+        </div>
+    </nav>
+    <hr>
+    <div id="myCarousel" class="carousel slide main" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-bs-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-bs-target="#myCarousel" data-slide-to="2" class="active"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="images/grapes-553464_640.jpg" alt="peppers">
+            </div>
+
+            <div class="item">
+                <img src="images/apples-1872997_640.jpg" alt="peppers">
+            </div>
+
+            <div class="item active">
+                <img src="images/tomatoes-1561565_640.jpg" alt="peppers">
+            </div>
+        </div>
+        <!-- left and right -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+         <!-- products -->
+         <div class="product-section container-fluid">
+            <h1>Available Ingredients</h1>
+    
+                          <!--  tomatoes  -->
+            <!-- <div id="product" class="rounded-md" >
+                <div id="product-image">
+                    <img src="/images/fresh tomato 2.jpg" alt="freshtomatoes">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname text-center font-medium p-1 border-white  border-b-2"> 2kg Fresh Tomatoes</h3>
+                    <h3 class="price p-1 text-center font-medium"> $20.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div>
+             <!-  2. cabbage -->
+             <!-- <div id="product" class="rounded-md">
+                <div id="product-image">
+                    <img src="/images/cabbage 2.jpg" alt="cabbage">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 5 fresh cabbages</h3>
+                    <h3 class="price  text-center p-1 font-medium"> $1.25</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+                        <!-- 3.lettuce -->
+            <!-- <div id="product" class="rounded-md" >
+                <div id="product-image">
+                    <img src="/images/lettuce.jpg" alt="lettuce">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2">5kg of fresh lettuce</h3>
+                    <h3 class="price p-1 text-center font-medium "> $5.00</h3>
+                </div>
+                <div id="purchasing-details ">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+                <!-- 4. carrots -->
+            <!-- <div id="product" class=rounded-md">
+                <div id="product-image">
+                    <img src="/images/carrot 2.jpg" alt="carrots">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg Fresh carrots</h3>
+                    <h3 class="price p-1 text-center font-medium "> $7.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view bg-green-400 visited:bg-green-900 hover:bg-green-800 px-2 py-2 text-white  rounded-2xl" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+             <!-- 5. cucumbers -->
+            <!-- <div id="product" class=" rounded-md" >
+                <div id="product-image">
+                    <img src="/images/cucumber.jpg" alt="cucumbers">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2">1 kg of fresh cucumbers </h3>
+                    <h3 class="price text-center font-medium p-1 border-white  border-b-2"> $4.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+             <!-- 6.onions -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/onions.jpg" alt="onions">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of fresh onions</h3>
+                    <h3 class="price p-1 text-center font-medium "> $4.80</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+                <!--7. beans -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/beans.jpg" alt="beans">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of honey beans</h3>
+                    <h3 class="price p-1 text-center font-medium "> $10.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!-- 8.maize-->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/overflowing maize.jpg" alt="maize">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 5kg Maize</h3>
+                    <h3 class="price p-1 text-center font-medium "> $7.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!-- 9.yam-->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/perwinkle.jpg1.jpg" alt="periwinkle">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 1/2 kg of periwinkle</h3>
+                    <h3 class="price p-1 text-center font-medium "> $20.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+             <!-- 10. cocoyam -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/roasted fish.jpg" alt="roasted fish">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of cocoyam</h3>
+                    <h3 class="price p-1 text-center font-medium "> $10.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!-- 11. cray fish -->
+            <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/crayfish.jpg" alt="crayfish">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 1kg of crayfish </h3>
+                    <h3 class="price p-1 text-center font-medium "> $5.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div>
+            <!-- 12.egusi -->
+            <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/beef.jpg" alt="egusi">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of Egusi</h3>
+                    <h3 class="price p-1 text-center font-medium "> $30.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div>
+            <!--13.  ogbonno -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/ogbonno.jpg" alt="ogbonno">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of ogbonno </h3>
+                    <h3 class="price p-1 text-center font-medium "> $40.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+                <!-- 14. soya bean -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/soya bean.jpg" alt="soyabeans">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 10kg of soyabeans</h3>
+                    <h3 class="price p-1 text-center font-medium "> $25.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+             <!-- 15. unripe plantain -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/unripe plantain.jpg" alt="unripe plantain">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 12 fingers of unripe plantain</h3>
+                    <h3 class="price p-1 text-center font-medium "> $15.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div> -->
+            </div>
+            <!-- 16. ripe plantain -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/ripe plantain.jpg" alt="ripe plantain">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 12 fingers of medium plantain</h3>
+                    <h3 class="price p-1 text-center font-medium "> $20.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--17. unpealed gnut -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/unpealed groundnut.jpg" alt="g/nut">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of clothed groundnut</h3>
+                    <h3 class="price p-1 text-center font-medium "> $12.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+             <!-- 18. pealed g/nut -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/pilled groundnut.jpg" alt="groundnut">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg of naked groundnut</h3>
+                    <h3 class="price p-1 text-center font-medium "> $15.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--19. tatashe -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/tatashe.jpg" alt="tatashe">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2">5kg of tatashe</h3>
+                    <h3 class="pp-1 text-center font-mediumrice "> $10.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+                <!-- 20. garri -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/garri.jpg" alt="yellow garri">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 5kg garri</h3>
+                    <h3 class="price p-1 text-center font-medium"> $15.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--21.  palm fruit -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/red palm fruit.jpg" alt="palmfruits">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 3kg of unprocessed palm fruit</h3>
+                    <h3 class="price p-1 text-center font-medium"> $35.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--22. chicken breast -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/chicken breast.jpg" alt="wings">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2kg wings </h3>
+                    <h3 class="price p-1 text-center font-medium"> $15.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div> -->
+            </div>
+            <!--23.  minimalist breast -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/minimalist chicken breast.jpg" alt="sapa">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2">Sapa breast</h3>
+                    <h3 class="price p-1 text-center font-medium"> $7.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--23.  minimalist wings -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/goatmeat.jpg" alt="sapa wings">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> Sapa wings</h3>
+                    <h3 class="price p-1 text-center font-medium"> $5.50</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--24.  ginger -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/DRY-SCENT-LEAF.jpg" alt="chicken $ breast">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> A pack of scent leaf</h3>
+                    <h3 class="price p-1 text-center font-medium"> $25.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--25. chicken thighs -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/chicken thighs.jpg" alt="chicken tighs">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2">A dozen</h3>
+                    <h3 class="price p-1 text-center font-medium"> $10.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div> -->
+            <!--26. okro -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/okra-1386365_1280 (1).jpg" alt="okro">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 1kg of Okro</h3>
+                    <h3 class="price p-1 text-center font-medium"> $5.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div> -->
+            </div>
+                 <!-- 27 red oil -->
+            <!-- <div id="product" class="col">
+                <div id="product-image">
+                    <img src="/images/red hoil.jpg" alt="red pil">
+                </div>
+                <div class="product-description">
+                    <h3 class="productname p-1 text-center font-medium border-white border-b-2"> 2litres of Nigerian palm oill</h3>
+                    <h3 class="price p-1 text-center font-medium"> $20.00</h3>
+                </div>
+                <div id="purchasing-details">
+                    <button class="viewbtn view" type="button" onclick="viewmore()">View more</button>
+                    <button  class="addbtn add" type="button" onclick="addTOCart()"> Add to cart</button>
+                </div>
+            </div>  -->
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
