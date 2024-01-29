@@ -14,40 +14,59 @@
    
 </head>
 <body>
-                        <!-- navigation bar -->
-     <header class=" bg-green-950   z-10 relative">
-                            <!-- navbar-container -->
-        <nav class=" p-2 text-green-950 flex items-center justify-between ">
+                       
+    <header>
+        <nav  class=" mx-auto bg-green-700  border-transparent dark:bg-green-950 z-10 ">
+            <div class=" max-w-screen-xl p-4 text-white flex flex-wrap items-center justify-between relative mx-auto ">
                 <a href="#"> <img class="rounded-full w-14 h-14" src="/images/logo.png" alt="Naija Next Door"></a>
-            <div class=" flex text-white justify-around">
-                <a href="#" class="text-white font-medium hover:opacity-80 pe-4 "  >Home</a>
-                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Products</a>
-                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Contact Us</a>
-                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">About Us</a>
-                <a href="#" class="pe-4 text-white font-medium hover:opacity-80">Ratings & feedbacks</a>
-            </div>
-                                                <!-- CART CART  CART -->
-            <div class="">
-                <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="" onclick="addtocart()"> 
-                <div id="cart-container" class="absolute  right-0 w-[50%] bg-green-300  z-20  rounded-b rounded-t hidden">
-                    <div id="cart_items-display" class="flex justify-around items-center p-3">
-                        <img src="/images/bell-peppers-1302126_1280.jpg" alt="" class="w-[50%] rounded-3xl ">
-                        <div class="">
-                            <span>  <img  class="w-3" src="/images/trash-can-regular.svg" alt=""></span>
-                            <h3 id="cart_product_name" class="font-bold  ">Name:</h3> 
-                            <h5 class="font-medium cart_product_quantity"> Quantity: <span id="increase_items" class=" p-1 font-medium border-2 border-black"> +1</span> <span id="reduce_items" class="font-medium border-2 border-black p-1">-1</span> </h5>
-                            <h2  id="item_price" class="font-medium ">price:</h2>
-                        </div>  
-                    </div> 
-                    <div id="cart_items_box">
-                        <div id="cart_items " class="mx-auto py-2 border-2 border-black"> <h3 class="font-medium text-center">Cart Items</h3> </div>
-                        <div id="cart_default" class="mx-auto py-2 border-2 border-black"><h3 class="font-medium text-center"> Sorry! Your cart is empty</h3></div> 
-                        <div id="cart_total"class="mx-auto py-2 border-2 border-black"> <h2 class="font-bold text-center"> TOTAL AMOUNT($)= 0.00</h2></div>
+
+                <button data-collapse-toggle="navbar-default" type="button" class=" inline-flex items-center justify-center p-2 h-10 w-10 text-sm text-white rounded-lg md:hidden hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-200 dark:text-white dark:bg-green-950" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Opem main manu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+    
+                <div class=" w-full md:block md:w-auto" id="navbar-default"> 
+                    <ul class="flex  md:gap-8 border border-white flex-col font-medium mt-4 md:p-0 dark:bg-green-950 md:border-0 rounded-lg bg-green-950 md:flex-row md:space-x-7 md:mt-0 md:bg-transparent">
+                        <li>
+                            <a href="#" class=" md:border-0 block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 md:bg-transparent border-b-2 text-center" aria-current="page" >Home</a>
+                        </li>
+                        <li>
+                            <a href="#products_page" class=" md:border-0 block border-b-2 text-center rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0" >Products</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center md:border-0" >Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#aboutus" class="block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center md:border-0" >About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="md:border-0 md: hover: bg-yellow block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center" >Raings & feedback</a>
+                        </li>
+                    </ul>
+                </div>
+                                            <!-- CART CART  CART -->
+                <div class=""> 
+                    <div class=" relative "  onclick="displayCart()">
+                        <div id="cart_notificatication" onclick="cart_notifier()" class="hidden font-semibold text-center h-3 w-3 bg-red-600  text-white text-[10px] rounded-lg left-4 top-0  absolute"></div>
+                        <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="">
+                    </div>
+    
+                    <div id="cart-container" class=" hidden absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
+                        <div id="mini_cart">
+                        <!-- inject cart-items from JS -->
+                        </div>
+                        <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
+                            <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
+                            <div id="sum-total" class="border-gray-600 border-b p-2 "><h3 class="font-medium text-center">Sutotal : &#x20A6; </h3></div> 
+                            <div onclick="checkout()" id="checkout"class=" border-gray-600 border-1 p-2 text-center"> <button class="font-bold text-white bg-green-950 p-2">CHECKOUT (&#x20A6;)</button></div>
+                        </div> 
                     </div>
                 </div>
             </div>
         </nav>
-    </header>                                    
+    </header>                     
 
         <!-- main  sliding images -->
 <!-- 
@@ -81,34 +100,40 @@
     </div> -->
    
                       <!--          About us-->
-    <div id="aboutus" class="aboutus-container container-fluid">
-        <div class="aboutus-content">
-            <div class="intro" id="intro">
-                    <h1>About <span class="highlightText">Us</span></h1>
-                <div>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae natus facilis, itaque aperiam, amet corporis doloremque quisquam voluptatem ducimus dolorem consectetur recusandae alias. Accusantium sapiente voluptatibus molestias fugiat incidunt recusandae doloribus expedita nisi quasi! Sit amet a quibusdam, temporibus earum odit,  corrupti, eos impedit minima dolorum natus officia aliquid corporis! Eum libero corporis dolorum velit animi consectetur est dolor quod, cumque ipsum quia tempore, nostrum itaque modi quas, eaque molestias!
+    <main id="aboutus" class="w-full">
+        <div class=" font-bold text-center text-2xl"> About <span class=" text-green-900">Us</span></div>
+        <div class="flex flex-col p-8 m-auto md:flex-row bg-slate-500" id="intro">
+                <div class="font-serif font-medium  pl-4 pt-5 ">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae natus facilis, itaque aperiam, amet corporis doloremque quisquam voluptatem ducimus dolorem consectetur recusandae alias. Accusantium sapiente voluptatibus molestias fugiat incidunt recusandae doloribus expedita nisi quasi! Sit amet a quibusdam, temporibus earum odit,  corrupti, eos impedit minima dolorum natus officia aliquid corporis! Eum libero corpo liris dolorum velit animi consectetur est dolor quod, cumque ipsum quia tempore, nostrum itaque modi quas, eaque molestias!
+                        bu
+                    </p>
+                   <div class="flex flex-col justify-center items-center mt-2"><button  class="bg-green-900 py-2 text-white rounded-2xl px-3" onclick="morecontent()" type="button"> Read more!</button></div>
                 </div>
-            </div>
+                <img src="/images/istockphoto-1439785182-170667a.jpg" alt="">
+        </div>
                              <!-- business goals -->
-            <div class="how">
-                <img src="./images/apple-1122537_640.jpg" alt="">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quae quam officia eos cupiditate mollitia perspiciatis vitae ea, aliquam odit! Cumque, asperiores harum dolorem reprehenderit dolore facere et omnis modi placeat quos expedita praesentium eaque reiciendis voluptatibus blanditiis corporis vero, at, recusandae provident! Perspiciatis fugit rerum ipsam adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste vel rerum iusto rem ducimus, sed, eligendi quisquam illum amet asperiores minima, magnam ad tempora. Quisquam consequuntur eius ipsam porro temporibus.
-                </p>
-            </div>
-
-            <div class="corevalues">
-                <div class="whatwedo">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, eius?
+        <div>
+            <div class=" font-bold text-center text-2xl"> </div>
+                <div class="how">
+                    <img src="./images/apple-1122537_640.jpg" alt="">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quae quam officia eos cupiditate mollitia perspiciatis vitae ea, aliquam odit! Cumque, asperiores harum dolorem reprehenderit dolore facere et omnis modi placeat quos expedita praesentium eaque reiciendis voluptatibus blanditiis corporis vero, at, recusandae provident! Perspiciatis fugit rerum ipsam adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste vel rerum iusto rem ducimus, sed, eligendi quisquam illum amet asperiores minima, magnam ad tempora. Quisquam consequuntur eius ipsam porro temporibus.
+                    </p>
                 </div>
-                <div class="whywedoit">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum reprehenderit vel minus soluta autem repellendus nihil numquam. Praesentium, natus quo!
+    
+                <div class="corevalues">
+                    <div class="whatwedo">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, eius?
+                    </div>
+                    <div class="whywedoit">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum reprehenderit vel minus soluta autem repellendus nihil numquam. Praesentium, natus quo!
+                    </div>
+                    <div class="forwho">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ab magni earum commodi ducimus quae veniam debitis. Tenetur quam quod voluptatibus repellendus exercitationem quasi eligendi nostrum molestias voluptatum illum!
                 </div>
-                <div class="forwho">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ab magni earum commodi ducimus quae veniam debitis. Tenetur quam quod voluptatibus repellendus exercitationem quasi eligendi nostrum molestias voluptatum illum!
-            </div>
-        </div>       
-    </div>
+        </div>                   
+    </main>
                                      <!-- card -->
 
     <footer class="footer" id="footer">
