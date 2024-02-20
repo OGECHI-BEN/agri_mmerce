@@ -118,7 +118,10 @@ function updateUI(){
             <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
         </div>
         <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
-            <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button  type="button" onclick="viewmore()">View more</button></div>
+            <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
+               <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
+               <div id="viewmorecontent" class="morecontent hidden"></div>
+            </div>
             <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
         </div>`
         
@@ -141,10 +144,10 @@ function updateUI(){
 function addTOcart(product_id){
 
     let itemPresentIndex = cart.findIndex(item => item.id === product_id);
-    console.log(itemPresentIndex);
+    //console.log(itemPresentIndex);
     if (itemPresentIndex === -1){
         let target = products.find( item => item.id === product_id);
-         console.log(target);
+       //  console.log(target);
          const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
             // console.log(newCartItems);
         // console.log(product_id);
@@ -155,21 +158,23 @@ function addTOcart(product_id){
         cart[itemPresentIndex].qty++;
     }
 
-    console.log(cart);
+   // console.log(cart);
   
+    
+ 
 
    
     //This is for the on the red notification to show and increase as items are being added to cart 2.
     // cartIncrease++;
     // cart_notifier.innerText = cartIncrease;
     // console.log(cartIncrease);
-      //This is for the on the quantity to in the cart to increase it as items are being clicked on
+    // //   This is for the on the quantity to in the cart to increase it as items are being clicked on
 
     //  let display_quantity = document.getElementById('quantity');
     //     display_quantity.innerHTML = cartIncrease;
-    //     console.log(display_quantity);
+    //      console.log(display_quantity);
     
-    //This
+
 
    
     updatecart();
@@ -186,38 +191,48 @@ function updatecart(){
         let cart_box =  document.createElement('div');
         cart_box.id = "cartItem";
         cart_box.innerHTML = ` <div id="cart_items-display" class="flex flex-col">
-        <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
-            <div id="itemImage"><img src="${cartItem.Image}" alt="${cartItem.name}" class="w-[150px] "></div>
-            <div class="product_name flex flex-col">
-                <h3 id="itemName" class="item_name text-wrap font-bold">${cartItem.name}</h3>
-                <h6 id="availablity" class="text-[10px] font-bold"> ${cartItem.category}</h6>
-            </div> 
-            <div class="product_price flex flex-col">
-                <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;${cartItem.price}</h3>
-                <h6 id="discount" class="text-[10px]"> -10%</h6>
-            </div>
-        </div>
-        <div class="flex justify-between items-center p-5">
-            <div onclick="deleteItems()" class="delete_items p-3 cursor-pointer" id="deleteItems">
-                <img class="w-3" src="/images/trash-can-regular.svg" alt="">
-            </div>
-            <div class="item_size flex ">
-                <div onclick="decreaseItems()" id="decreaseItems" class="decrease_items bg-green-950 text-white p-3"> - </div>
-                <div id="quantity" class="quantity text-green-950 p-3">${cartItem.qty} </div>
-                <div onclick="increaseItems()" id="increaseItems" class="increase_items bg-green-950 text-white p-3"> + </div>
+                <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
+                    <div id="itemImage"><img src="${cartItem.Image}" alt="${cartItem.name}" class="w-[150px] "></div>
+                    <div class="product_name flex flex-col">
+                        <h3 id="itemName" class="item_name text-wrap font-bold">${cartItem.name}</h3>
+                        <h6 id="availablity" class="text-[10px] font-bold"> ${cartItem.category}</h6>
+                    </div> 
+                    <div class="product_price flex flex-col">
+                        <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;${cartItem.price}</h3>
+                        <h6 id="discount" class="text-[10px]"> -10%</h6>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center p-5">
+                    <div onclick="deleteItems(${cartItem.id})" class="delete_items p-3 cursor-pointer" id="deleteItems">
+                        <img class="w-3" src="/images/trash-can-regular.svg" alt="">
+                    </div>
+                    <div class="item_size flex ">
+                        <div onclick="decreaseItems(${cartItem.id})" id="decreaseItems" class="decrease_items bg-green-950 text-white p-3"> - </div>
+                        <div id="quantity" class="quantity text-green-950 p-3">${cartItem.qty} </div>
+                        <div onclick="increaseItems(${cartItem.id})" id="increaseItems" class="increase_items bg-green-950 text-white p-3"> + </div>
 
-            </div>
-        </div>  
-    </div> `
+                    </div>
+                </div>  
+            </div> `
+
+            cartContainer.appendChild(cart_box)
+    }
     let cart_notifier = document.getElementById('cart_notificatication');
     // console.log("cart_notifier------>", cart_notifier);
     cart_notifier.style.display ='block'; 
 
+    cart_notifier.innerText =cart.length;
+    if(cart.length === 0){
+        cart_notifier.style.display ='none';
+        console.log("empty")
+    }
 
-    cartContainer.appendChild(cart_box)
+    else{
+    cart_notifier.style.display ='block';
+    console.log("emptfuyyyyy")
+    }
+    console.log(cart.length);
 
- 
-}
 }
 class carts{
     constructor(id,name,price,Image,category,qty){
@@ -229,7 +244,75 @@ class carts{
         this.qty = qty;
 
     }
-
 }
 
+function  deleteItems(product_id){
+    let itemPresentIndex = cart.findIndex(item => item.id === product_id);
+   // console.log(itemPresentIndex);
+    cart.splice(itemPresentIndex,1);
+   // console.log(cart);
+
+    updatecart();
+
+ }
+    function decreaseItems(product_id){
+        let itemPresentIndex = cart.findIndex(item => item.id === product_id);
+        //console.log(itemPresentIndex);
+        if (itemPresentIndex === -1){
+            let target = products.find( item => item.id === product_id);
+            // console.log(target);
+             const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
+                // console.log(newCartItems);
+            // console.log(product_id);
+            cart.push(newCartItems);
+           
+        }else{  
+            // console.log('reduce already present items');
+            cart[itemPresentIndex].qty--;   
+        }
+        updatecart();           
+    }
+    function increaseItems(product_id){
+        let itemPresentIndex = cart.findIndex(item => item.id === product_id);
+       // console.log(itemPresentIndex);
+        if (itemPresentIndex === -1){
+            let target = products.find( item => item.id === product_id);
+            // console.log(target);
+             const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
+                // console.log(newCartItems);
+            // console.log(product_id);
+            cart.push(newCartItems);
+           
+        }else{  
+            // console.log('reduce already present items');
+            cart[itemPresentIndex].qty++;   
+        }
+        updatecart();           
+    }
+
+
+
+// function viewmore(){
+//     let view_More = document.getElementById("viewmorebtn");
+//     let content = document.getElementById("viewmorecontent");
+//    content.style.display="block";
+//    if(content.style.display==="block"){
+//         content.innerHTML=`
+//         <div id="product-image">
+//         <img src="${product.Image}" alt="${product.name}">
+//     </div>
+//     <div class="product-description">
+//         <h3 class="productname text-center font-medium p-1 border-white  border-b-2 unknwon"> ${product.name}</h3>
+//         <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
+//     </div>
+//     <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
+//         <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
+//            <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
+//            <div id="viewmorecontent" class="morecontent hidden"></div>
+//         </div>
+//         <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
+//     </div>`
+//    }
+   
+// }
 
