@@ -148,7 +148,7 @@ function addTOcart(product_id){
     if (itemPresentIndex === -1){
         let target = products.find( item => item.id === product_id);
        //  console.log(target);
-         const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
+         const newCartItems = new New_Cart_Items (target.id,target.name,target.price,target.Image,target.category,1);
             // console.log(newCartItems);
         // console.log(product_id);
         cart.push(newCartItems);
@@ -198,7 +198,7 @@ function updatecart(){
                         <h6 id="availablity" class="text-[10px] font-bold"> ${cartItem.category}</h6>
                     </div> 
                     <div class="product_price flex flex-col">
-                        <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;${cartItem.price}</h3>
+                        <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;${cartItem.subtotal()}</h3>
                         <h6 id="discount" class="text-[10px]"> -10%</h6>
                     </div>
                 </div>
@@ -233,8 +233,10 @@ function updatecart(){
     }
     console.log(cart.length);
 
+    CartItemsTotalPrice()
+
 }
-class carts{
+class New_Cart_Items{
     constructor(id,name,price,Image,category,qty){
         this.id = id;
         this.name = name;
@@ -242,9 +244,12 @@ class carts{
         this.Image = Image;
         this.category = category;
         this.qty = qty;
+        this.subtotal = ()=> this.qty * this.price
 
     }
 }
+
+   // TO DELETE ITEMS
 
 function  deleteItems(product_id){
     let itemPresentIndex = cart.findIndex(item => item.id === product_id);
@@ -255,64 +260,67 @@ function  deleteItems(product_id){
     updatecart();
 
  }
+            // TO REDUCE ITEMS
+
     function decreaseItems(product_id){
         let itemPresentIndex = cart.findIndex(item => item.id === product_id);
-        //console.log(itemPresentIndex);
-        if (itemPresentIndex === -1){
-            let target = products.find( item => item.id === product_id);
-            // console.log(target);
-             const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
-                // console.log(newCartItems);
-            // console.log(product_id);
-            cart.push(newCartItems);
-           
-        }else{  
-            // console.log('reduce already present items');
-            cart[itemPresentIndex].qty--;   
+
+        if(cart[itemPresentIndex].qty>1){
+            cart[itemPresentIndex].qty--; 
+        }else{
+            cart.splice(itemPresentIndex,1);
         }
-        updatecart();           
-    }
+        updatecart();   
+    }        
+  
+              //  TO INCREASE ITEMS
+
+
     function increaseItems(product_id){
         let itemPresentIndex = cart.findIndex(item => item.id === product_id);
-       // console.log(itemPresentIndex);
-        if (itemPresentIndex === -1){
-            let target = products.find( item => item.id === product_id);
-            // console.log(target);
-             const newCartItems = new carts (target.id,target.name,target.price,target.Image,target.category,1);
-                // console.log(newCartItems);
-            // console.log(product_id);
-            cart.push(newCartItems);
-           
-        }else{  
-            // console.log('reduce already present items');
-            cart[itemPresentIndex].qty++;   
+        cart[itemPresentIndex].qty++; 
+
+        console.log( cart[itemPresentIndex].subtotal());
+     
+        updatecart();  
+      
+    }
+    function CartItemsTotalPrice(){
+        let subtotal = document.getElementById('subtotal');
+        let subtotals = document.getElementById('subtotals');
+
+        let totalPrice = 0;
+        for(let item of cart){
+            totalPrice += item.subtotal();
         }
-        updatecart();           
+           
+        subtotal.innerHTML= totalPrice;
+        subtotals.innerHTML= totalPrice;
     }
 
 
 
-// function viewmore(){
-//     let view_More = document.getElementById("viewmorebtn");
-//     let content = document.getElementById("viewmorecontent");
-//    content.style.display="block";
-//    if(content.style.display==="block"){
-//         content.innerHTML=`
-//         <div id="product-image">
-//         <img src="${product.Image}" alt="${product.name}">
-//     </div>
-//     <div class="product-description">
-//         <h3 class="productname text-center font-medium p-1 border-white  border-b-2 unknwon"> ${product.name}</h3>
-//         <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
-//     </div>
-//     <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
-//         <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
-//            <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
-//            <div id="viewmorecontent" class="morecontent hidden"></div>
-//         </div>
-//         <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
-//     </div>`
-//    }
+function viewmore(){
+    let viewMoreDisplay = document.getElementById("viewmorebtn");
+   viewMoreDisplay.innerHTML='';
+ 
+   if(content.style.display==="block"){
+        content.innerHTML=`
+        <div id="product-image">
+        <img src="${product.Image}" alt="${product.name}">
+    </div>
+    <div class="product-description">
+        <h3 class="productname text-center font-medium p-1 border-white  border-b-2 unknwon"> ${product.name}</h3>
+        <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
+    </div>
+    <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
+        <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
+           <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
+           <div id="viewmorecontent" class="morecontent hidden"></div>
+        </div>
+        <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
+    </div>`
+   }
    
-// }
+}
 

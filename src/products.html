@@ -36,15 +36,18 @@
                     <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="">
                 </div>
 
-                <div id="cart-container" class=" hidden absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
-                    <div id="mini_cart">
-                      <!-- inject cart-items from JS -->
+                <div id="cart-container" class=" w-[80%] h-64 overflow-y-scroll hidden  absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
+                    <div class=" grid grid-cols-2 gap-2">
+                        <div id="mini_cart">
+                            <!-- inject cart-items from JS -->
+                        </div>
+                          <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
+                              <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
+                              <div onclick="CartItemsTotalPrice()" class="border-gray-600 border-b p-2 "><h3 class="font-medium text-center">Sutotal : &#x20A6; <span id="subtotal"></span></h3></div> 
+                              <div onclick="CartItemsTotalPrice()"  class=" border-gray-600 border-1 p-2 text-center"> <button class="font-bold text-white bg-green-950 p-2">CHECKOUT: (&#x20A6; <span id="subtotals"></span>) </button></div>
+                          </div> 
                     </div>
-                    <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
-                        <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
-                        <div id="sum-total" class="border-gray-600 border-b p-2 "><h3 class="font-medium text-center">Sutotal : &#x20A6; </h3></div> 
-                        <div onclick="checkout()" id="checkout"class=" border-gray-600 border-1 p-2 text-center"> <button class="font-bold text-white bg-green-950 p-2">CHECKOUT (&#x20A6;)</button></div>
-                    </div> 
+                 
                 </div>
             </div>
         </nav>

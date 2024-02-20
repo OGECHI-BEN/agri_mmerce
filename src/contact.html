@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
-  
+    <body>
+        
+        <div id="viewmoreContainer" class=" hidden h-64">
+            <div class="grid grid-cols-2 gap-2 ">
+                <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
+                    <div id="itemImage"><img src="${cartItem.Image}" alt="${cartItem.name}" class="w-[150px] "></div>
+                    <div class="product_name flex flex-col">
+                        <h3 id="itemName" class="item_name text-wrap font-extrabold">${cartItem.name}</h3>
+                        <h6 id="availablity" class="text-[30px] font-bold"> ${cartItem.category}</h6>
+                    </div> 
+                    <div class="product_price flex flex-col">
+                        <h3 id="itemPrice" class="item_name font-bold"> &#x20A6;${cartItem.subtotal()}</h3>
+                        <h6 id="discount" class="text-[30px]"> -10%</h6>
+                    </div>
+                </div>
+            </div>
+        </div> 
 
-
-</body>
+    </body>
 </html>
