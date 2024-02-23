@@ -118,11 +118,15 @@ function updateUI(){
             <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
         </div>
         <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
-            <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
-               <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
-               <div id="viewmorecontent" class="morecontent hidden"></div>
+            <div class="vie gap-2 wbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white flex flex-col">
+              <div id="viewmorebtn" onclick="openPopUp()" onclick="viewMore()">
+                  <button  type="button"> View more </button>
+                  <div id="viewMoreContainer" class="w-80% md:w-[100%] min-h-screen bg-opacity-40 bg-[#000000] xgrid hidden place-content-center absolute  top-0 p-10" onclick="closepop()">
+               </div>
+               <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
+                     <button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button>
+               </div>
             </div>
-            <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
         </div>`
         
         products_grid.appendChild(product_container);
@@ -186,11 +190,11 @@ function addTOcart(product_id){
 
 function updatecart(){
     let cartContainer = document.getElementById('mini_cart');
-    cartContainer.innerHTML = '';
+    cartContainer.innerHTML ='';
     for(let cartItem of cart){
         let cart_box =  document.createElement('div');
         cart_box.id = "cartItem";
-        cart_box.innerHTML = ` <div id="cart_items-display" class="flex flex-col">
+        cart_box.innerHTML = `<div id="cart_items-display" class="flex flex-col">
                 <div id="itemContainer" class="item_container flex gap-7 mt-8 mx-5">
                     <div id="itemImage"><img src="${cartItem.Image}" alt="${cartItem.name}" class="w-[150px] "></div>
                     <div class="product_name flex flex-col">
@@ -297,30 +301,45 @@ function  deleteItems(product_id){
         subtotal.innerHTML= totalPrice;
         subtotals.innerHTML= totalPrice;
     }
+    function openPopUp(product_id) {
+        let viewMoreContent = products.findIndex(viewmore =>viewmore.id === product_id)
+        let viewMoreContainer = document.createElement('div')
+        viewMoreContainer.id = 'popup_1';
+        viewMoreContainer.innerHTML=`
+                        <div id="viewmoreContainer" class="w-80vw md:w-[100vw] min-h-screen bg-opacity-40 bg-[#000000] xgrid hidden place-content-center absolute  top-0 p-10" onclick="closepop()">
+                            <div class="grid grid-cols-2  gap-8  p-10 m-auto bg-white relative">
+                                <span class=" absolute right-5 top-5"  id="close" onclick="closepop()">&#x274C;</span>
+                                <div class="">
+                                    <img src="/images/yam.webp" alt="" class="w-[100%]" >  
+                                </div>
+                                <div class="food_description flex flex-col justify-center">
+                                    <h3 id="itemName" class="item_name  font-bold text-[20px] ">Name: Yam</h3>
+                                    <h3 id="itemPrice" class="item_name font-bold text-green-950 text-[20px] ">Price:  &#x20A6;1000</h3>
+                                    <h6 id="availablity" class="text-[20px] font-bold ">Category: Nigerian</h6> 
+                                    <div class="py-5"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa explicabo omnis nihil eligendi aspernatur magnam voluptate incidunt deserunt, unde, non voluptatum. Tempore optio sed adipisci, ut quam et ratione deserunt voluptates veritatis recusandae quaerat! Quos ea eos quia provident natus!</div>
+                                    <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart()"> Add to cart</button></div>
+                                </div>
+                            </div>
+                        </div>`
+                    let bigger_container = document.getElementById("container")
+                    bigger_container.appendChild(viewMoreContainer);
+                    console.log(bigger_container);
+    }
 
 
 
-function viewmore(){
-    let viewMoreDisplay = document.getElementById("viewmorebtn");
-   viewMoreDisplay.innerHTML='';
- 
-   if(content.style.display==="block"){
-        content.innerHTML=`
-        <div id="product-image">
-        <img src="${product.Image}" alt="${product.name}">
-    </div>
-    <div class="product-description">
-        <h3 class="productname text-center font-medium p-1 border-white  border-b-2 unknwon"> ${product.name}</h3>
-        <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
-    </div>
-    <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
-        <div class="viewbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
-           <button id="viewmorebtn" type="button" onclick="viewmore()">View more</button>
-           <div id="viewmorecontent" class="morecontent hidden"></div>
-        </div>
-        <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button></div>
-    </div>`
-   }
+
+            // function openPopUp() {
+            //         let viewMoreContainer = document.getElementById('viewmoreContainer');
+            //         viewMoreContainer.style.display= "grid";
+            // }
+            // function closepop(){
+            //         let viewMoreContainer = document.getElementById('viewmoreContainer');
+            //         viewMoreContainer.style.display= "none";
+            // }
+
    
-}
+        
+    
 
+   
