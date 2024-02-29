@@ -119,7 +119,7 @@ function updateUI(){
         </div>
         <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
             <div class="vie gap-2 wbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white flex flex-col">
-              <div id="viewmorebtn" onclick="openPopUp()" onclick="viewMore()">
+              <div id="viewmorebtn" onclick="openPopUp(${product.id})" onclick="viewMore()">
                   <button  type="button"> View more </button>
                   <div id="viewMoreContainer" class="w-80% md:w-[100%] min-h-screen bg-opacity-40 bg-[#000000] xgrid hidden place-content-center absolute  top-0 p-10" onclick="closepop()">
                </div>
@@ -306,7 +306,7 @@ function  deleteItems(product_id){
         let viewMoreContainer = document.createElement('div')
         viewMoreContainer.id = 'popup_1';
         viewMoreContainer.innerHTML=`
-                        <div id="viewmoreContainer" class="w-80vw md:w-[100vw] min-h-screen bg-opacity-40 bg-[#000000] xgrid hidden place-content-center absolute  top-0 p-10" onclick="closepop()">
+                        <div id="viewmoreContainer" class="w-80vw md:w-[100vw] min-h-screen bg-opacity-40 bg-[#000000] xhidden grid fixed place-content-center xabsolute  top-0 p-10" onclick="closepop()">
                             <div class="grid grid-cols-2  gap-8  p-10 m-auto bg-white relative">
                                 <span class=" absolute right-5 top-5"  id="close" onclick="closepop()">&#x274C;</span>
                                 <div class="">
@@ -333,10 +333,10 @@ function  deleteItems(product_id){
             //         let viewMoreContainer = document.getElementById('viewmoreContainer');
             //         viewMoreContainer.style.display= "grid";
             // }
-            // function closepop(){
-            //         let viewMoreContainer = document.getElementById('viewmoreContainer');
-            //         viewMoreContainer.style.display= "none";
-            // }
+             function closepop(){
+            let viewMoreContainer = document.getElementById('viewmoreContainer');
+               viewMoreContainer.style.display= "none";
+            }
 
    
         
