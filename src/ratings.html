@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RATINGS</title>
+</head>
+<body>
+        
+    <header>
+        <nav  class=" mx-auto bg-green-700  border-transparent dark:bg-green-950 z-10 ">
+            <div class=" max-w-screen-xl p-4 text-white flex flex-wrap items-center justify-between relative mx-auto ">
+                <a href="#"> <img class="rounded-full w-14 h-14" src="/images/logo.png" alt="Naija Next Door"></a>
+
+                <button data-collapse-toggle="navbar-default" type="button" class=" inline-flex items-center justify-center p-2 h-10 w-10 text-sm text-white rounded-lg md:hidden hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-200 dark:text-white dark:bg-green-950" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main manu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+    
+                <div class=" w-full md:block md:w-auto" id="navbar-default"> 
+                    <ul class="flex  md:gap-8 border border-white flex-col font-medium mt-4 md:p-0 dark:bg-green-950 md:border-0 rounded-lg bg-green-950 md:flex-row md:space-x-7 md:mt-0 md:bg-transparent">
+                        <li>
+                            <a href="#" class=" md:border-0 block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 md:bg-transparent border-b-2 text-center" aria-current="page" >Home</a>
+                        </li>
+                        <li>
+                            <a href="products.html" class=" md:border-0 block border-b-2 text-center rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0" >Products</a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center md:border-0" >Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#aboutus" class="block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center md:border-0" >About Us</a>
+                        </li>
+                        <li>
+                            <a href="ratings.html" class="md:border-0 md: hover: bg-yellow block rounded text-white font-medium hover:opacity-80 py-2 px-3 md:p-0 border-b-2 text-center" >Raings & feedback</a>
+                        </li>
+                    </ul>
+                </div>
+                                            <!-- CART CART  CART -->
+                <div class=""> 
+                    <div class=" relative "  onclick="displayCart()">
+                        <div id="cart_notificatication" onclick="cart_notifier()" class="hidden font-semibold text-center h-3 w-3 bg-red-600  text-white text-[10px] rounded-lg left-4 top-0  absolute"></div>
+                        <img id="cart" src="/images/icons8-shopping-cart-30.png" alt="">
+                    </div>
+    
+                    <div id="cart-container" class=" hidden absolute  right-0 bg-white border-gray-800 border-2  z-20  rounded-b rounded-t  gap-3">
+                        <div id="mini_cart">
+                        <!-- inject cart-items from JS -->
+                        </div>
+                        <div id="cart_sumary" class="flex flex-col justify-start  border-gray-900 border-2 ">
+                            <div id="cart_items " class=" border-gray-600 border-b p-2 "> <h3 class="font-medium text-center">CART SUMMARY</h3> </div>
+                            <div id="sum-total" class="border-gray-600 border-b p-2 "><h3 class="font-medium text-center">Sutotal : &#x20A6; </h3></div> 
+                            <div onclick="checkout()" id="checkout"class=" border-gray-600 border-1 p-2 text-center"> <button class="font-bold text-white bg-green-950 p-2">CHECKOUT (&#x20A6;)</button></div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>      
+</body>
+</html>

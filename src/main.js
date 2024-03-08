@@ -118,10 +118,9 @@ function updateUI(){
             <h3 class="price p-1 text-center font-medium"> &#x20A6;${product.price}</h3>
         </div>
         <div id="purchasing-details" class ="grid place-content-center grid-t gap-2">
-            <div class="vie gap-2 wbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white flex flex-col">
+            <div class="gap-2 wbtn view p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white mb-7 flex flex-col">
               <div id="viewmorebtn" onclick="openPopUp(${product.id})" onclick="viewMore()">
                   <button  type="button"> View more </button>
-                  <div id="viewMoreContainer" class="w-80% md:w-[100%] min-h-screen bg-opacity-40 bg-[#000000] xgrid hidden place-content-center absolute  top-0 p-10" onclick="closepop()">
                </div>
                <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white">
                      <button id="addbtn" type="button" onclick="addTOcart(${product.id})"> Add to cart</button>
@@ -219,8 +218,13 @@ function updatecart(){
                 </div>  
             </div> `
 
-            cartContainer.appendChild(cart_box)
+            cartContainer.appendChild(cart_box);
+
+
+        
     }
+   
+
     let cart_notifier = document.getElementById('cart_notificatication');
     // console.log("cart_notifier------>", cart_notifier);
     cart_notifier.style.display ='block'; 
@@ -228,14 +232,14 @@ function updatecart(){
     cart_notifier.innerText =cart.length;
     if(cart.length === 0){
         cart_notifier.style.display ='none';
-        console.log("empty")
+        // console.log("empty")
     }
 
     else{
     cart_notifier.style.display ='block';
-    console.log("emptfuyyyyy")
+    // console.log("emptfuyyyyy")
     }
-    console.log(cart.length);
+    // console.log(cart.length);
 
     CartItemsTotalPrice()
 
@@ -260,6 +264,12 @@ function  deleteItems(product_id){
    // console.log(itemPresentIndex);
     cart.splice(itemPresentIndex,1);
    // console.log(cart);
+   if(cart.length=== 0){
+        let cartContainer = document.getElementById('cart-container');
+        cartContainer.style.display ='none'
+        console.log("heyddd")
+        
+    }
 
     updatecart();
 
@@ -273,9 +283,23 @@ function  deleteItems(product_id){
             cart[itemPresentIndex].qty--; 
         }else{
             cart.splice(itemPresentIndex,1);
+ 
+            if(cart.length=== 0){
+                let cartContainer = document.getElementById('cart-container');
+                cartContainer.style.display ='none'
+                console.log("heyddd")
+                
+            }
         }
-        updatecart();   
-    }        
+
+        updatecart(); 
+
+      
+    }      
+     // to close an empty cart
+     
+    
+
   
               //  TO INCREASE ITEMS
 
@@ -284,7 +308,7 @@ function  deleteItems(product_id){
         let itemPresentIndex = cart.findIndex(item => item.id === product_id);
         cart[itemPresentIndex].qty++; 
 
-        console.log( cart[itemPresentIndex].subtotal());
+        // console.log( cart[itemPresentIndex].subtotal());
      
         updatecart();  
       
@@ -301,45 +325,49 @@ function  deleteItems(product_id){
         subtotal.innerHTML= totalPrice;
         subtotals.innerHTML= totalPrice;
     }
+
+
+
+    
     function openPopUp(product_id) {
-        let viewMoreContent = products.findIndex(viewmore =>viewmore.id === product_id)
+       let productIndex = products.findIndex(viewmore =>viewmore.id === product_id)
         let viewMoreContainer = document.createElement('div')
         viewMoreContainer.id = 'popup_1';
         viewMoreContainer.innerHTML=`
                         <div id="viewmoreContainer" class="w-80vw md:w-[100vw] min-h-screen bg-opacity-40 bg-[#000000] xhidden grid fixed place-content-center xabsolute  top-0 p-10" onclick="closepop()">
-                            <div class="grid grid-cols-2  gap-8  p-10 m-auto bg-white relative">
+                            <div class="grid grid-cols-2  gap-8  p-10 m-auto bg-white relative" id="immediate_container">
                                 <span class=" absolute right-5 top-5"  id="close" onclick="closepop()">&#x274C;</span>
                                 <div class="">
-                                    <img src="/images/yam.webp" alt="" class="w-[100%]" >  
+                                    <img src="${products[productIndex].Image}" alt="${products[productIndex].name}" class="w-[100%]" >  
                                 </div>
                                 <div class="food_description flex flex-col justify-center">
-                                    <h3 id="itemName" class="item_name  font-bold text-[20px] ">Name: Yam</h3>
-                                    <h3 id="itemPrice" class="item_name font-bold text-green-950 text-[20px] ">Price:  &#x20A6;1000</h3>
-                                    <h6 id="availablity" class="text-[20px] font-bold ">Category: Nigerian</h6> 
+                                    <h3 id="itemName" class="item_name  font-bold text-[20px] ">${products[productIndex].name}</h3>
+                                    <h3 id="itemPrice" class="item_name font-bold text-green-950 text-[20px] ">Price:  &#x20A6;${products[productIndex].price}</h3>
+                                    <h6 id="availablity" class="text-[20px] font-bold ">Category:${products[productIndex].category}</h6> 
                                     <div class="py-5"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa explicabo omnis nihil eligendi aspernatur magnam voluptate incidunt deserunt, unde, non voluptatum. Tempore optio sed adipisci, ut quam et ratione deserunt voluptates veritatis recusandae quaerat! Quos ea eos quia provident natus!</div>
                                     <div class=" p-1 bg-green-800 rounded-md text-center hover:bg-green-950 hover:font-medium text-white"><button id="addbtn" type="button" onclick="addTOcart()"> Add to cart</button></div>
                                 </div>
                             </div>
                         </div>`
-                    let bigger_container = document.getElementById("container")
-                    bigger_container.appendChild(viewMoreContainer);
-                    console.log(bigger_container);
+        let bigger_container = document.getElementById("container")
+        bigger_container.appendChild(viewMoreContainer);
+        
+        let contentBox = document.getElementById('immediate_container');
+        contentBox.addEventListener("click", function(event) {
+            event.stopPropagation(); // Stop event propagation
+        });
+
+
     }
 
 
 
-
-            // function openPopUp() {
-            //         let viewMoreContainer = document.getElementById('viewmoreContainer');
-            //         viewMoreContainer.style.display= "grid";
-            // }
+          
              function closepop(){
-            let viewMoreContainer = document.getElementById('viewmoreContainer');
-               viewMoreContainer.style.display= "none";
+             let viewMoreContainer = document.getElementById('popup_1');
+             viewMoreContainer.remove();    
             }
 
    
         
     
-
-   
